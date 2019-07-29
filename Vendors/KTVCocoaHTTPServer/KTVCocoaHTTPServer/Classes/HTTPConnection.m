@@ -1473,6 +1473,14 @@ static NSMutableArray *recentNonces;
 	NSUInteger writeQueueSize = [self writeQueueSize];
 	
 	if(writeQueueSize >= READ_CHUNKSIZE) return;
+    
+    if (ranges.count <= 0) {
+        return;
+    }
+    
+    if (!rangeIndex) {
+        return;
+    }
 	
 	DDRange range = [[ranges objectAtIndex:rangeIndex] ddrangeValue];
 	
